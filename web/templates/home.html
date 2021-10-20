@@ -11,17 +11,20 @@
     </button>
       <div class="container">
   <h1>Categories</h1>
-    {% for category in categories %}
-    <ul id="category.name">
-      <li>
-        <span class="field-name">Category:</span>
-        <span class="field-value">{{ category.name }}</span>
-      </li>
-      <li>
-        <span class="field-name">Description:</span>
-        <span class="field-value">{{ category.description }}</span>
-      </li>
-    </ul>
-    {% endfor %}
   </div>
+
+    <div class="row">
+        {% for category in categories %}
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ category.name }}</h5>
+            <p class="card-text">{{ category.description }}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+        {% endfor %}
+  </div>
+
 {% endblock %}
