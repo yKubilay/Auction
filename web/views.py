@@ -7,7 +7,7 @@ views = Blueprint("views", __name__)
 
 @views.route("/")
 def homepage():
-    return render_template("home.html")
+    return render_template("home.html", categories=Category.query.all())
 
 @views.route("/addCategory", methods=['GET', 'POST'])
 def addCategory():

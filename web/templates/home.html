@@ -9,15 +9,19 @@
     <button class="btn btn-primary bg-dark">
         <a class="nav-item nav-link" id="addCategory" href="/addCategory">Add new category (ADMIN)</a>
     </button>
-    <h1 align="center" >Categories</h1>
-    <ul class="list-group list-group-flush" id="notes">
-        {% for item in items %}
-        <li class="list-group-item">
-            {{ item.data }}
-            <button type="button" class="close" onClick="deleteNote({{ note.id }})">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </li>
-      {% endfor %}
+      <div class="container">
+  <h1>Categories</h1>
+    {% for category in categories %}
+    <ul id="category.name">
+      <li>
+        <span class="field-name">Category:</span>
+        <span class="field-value">{{ category.name }}</span>
+      </li>
+      <li>
+        <span class="field-name">Description:</span>
+        <span class="field-value">{{ category.description }}</span>
+      </li>
     </ul>
+    {% endfor %}
+  </div>
 {% endblock %}
