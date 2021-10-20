@@ -30,9 +30,10 @@ def addItem():
         model = request.form.get('model')
         description = request.form.get('description')
         price = request.form.get('price')
+        cid = request.form.get('cid')
 
         flash("Item has been added to auction...", category="success")
-        new_item = Item(producer=producer, model=model, description=description, price=price)
+        new_item = Item(producer=producer, model=model, description=description, price=price, cid=cid)
         database.session.add(new_item)
         database.session.commit()
         return redirect(url_for('views.homepage'))
