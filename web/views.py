@@ -21,7 +21,7 @@ def addCategory():
         database.session.commit()
         return redirect(url_for('views.homepage'))
 
-    return render_template("addCategory.html")
+    return render_template("addCategory.html") TEST
 
 @views.route("/addItem", methods=['GET', 'POST'])
 def addItem():
