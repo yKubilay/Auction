@@ -9,6 +9,10 @@ views = Blueprint("views", __name__)
 def homepage():
     return render_template("home.html", categories=Category.query.all())
 
+@views.route("/category-overview")
+def category_overview():
+    return render_template("category-overview.html", items=Item.query.all())
+
 @views.route("/addCategory", methods=['GET', 'POST'])
 def addCategory():
     if request.method == 'POST':
@@ -30,12 +34,11 @@ def addItem():
         model = request.form.get('model')
         description = request.form.get('description')
         price = request.form.get('price')
-        cid = request.form.get('cid')
 
         flash("Item has been added to auction...", category="success")
-        new_item = Item(producer=producer, model=model, description=description, price=price, cid=cid)
+        new_item = Item(producer=producer, model=model, description=description, price=price)
         database.session.add(new_item)
         database.session.commit()
-        return redirect(url_for('views.homepage'))
+        return redirect(url_for('views.category-overview'))
 
     return render_template("addItem.html")
