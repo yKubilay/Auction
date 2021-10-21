@@ -6,12 +6,12 @@
 <div class="card-deck">
     {% for item in items %}
   <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="{{ item.picture_url }}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Producer: {{ item.producer }}</h5>
       <p class="card-text">Model: {{ item.model }}</p>
       <p class="card-text">Description: {{ item.description }}</p>
-      <p class="card-text">Price: {{ item.price }}</p>
+      <p class="card-text">Price: {{ item.price }}kr</p>
     </div>
     <div class="card-footer">
       <small class="text-muted">Last updated 3 mins ago</small>

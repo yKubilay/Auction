@@ -34,9 +34,10 @@ def addItem():
         model = request.form.get('model')
         description = request.form.get('description')
         price = request.form.get('price')
+        picture_url = request.form.get('picture_url')
 
         flash("Item has been added to auction...", category="success")
-        new_item = Item(producer=producer, model=model, description=description, price=price)
+        new_item = Item(producer=producer, model=model, description=description, price=price, picture_url=picture_url)
         database.session.add(new_item)
         database.session.commit()
         return redirect(url_for('views.category_overview'))

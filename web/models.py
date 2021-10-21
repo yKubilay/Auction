@@ -6,6 +6,7 @@ class Item(database.Model):
     model = database.Column(database.String(99))
     description = database.Column(database.String(9999))
     price = database.Column(database.Integer)
+    picture_url = database.Column(database.String(9999))
     category_id = database.Column(database.Integer, database.ForeignKey('category.id'))
 
 class Category(database.Model):
