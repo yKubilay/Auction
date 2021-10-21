@@ -39,6 +39,6 @@ def addItem():
         new_item = Item(producer=producer, model=model, description=description, price=price)
         database.session.add(new_item)
         database.session.commit()
-        return redirect(url_for('views.category-overview'))
+        return redirect(url_for('views.category-overview.html'))
 
     return render_template("addItem.html")
