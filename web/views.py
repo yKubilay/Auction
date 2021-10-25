@@ -12,7 +12,6 @@ def homepage():
 @views.route("/category-overview/<catId>")
 def category_overview(catId):
     category = Category.query.get(catId)
-    print(category.items)
     return render_template("category-overview.html", items=category.items)
 
 @views.route("/addCategory", methods=['GET', 'POST'])
@@ -49,5 +48,4 @@ def addItem(catId):
 @views.route("/category-overview/<catId>/ShowItem/<itemId>")
 def item_overview(catId, itemId):
     item = Item.query.get(itemId)
-    print(item.producer)
     return render_template("item-overview.html", item = item)
